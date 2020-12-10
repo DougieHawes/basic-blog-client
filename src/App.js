@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
 
-function App() {
+import { useDispatch } from "react-redux";
+
+import { getPosts } from "./actions/posts";
+
+import "./style.min.css";
+
+import Form from "./components/Form";
+import Posts from "./components/Posts";
+
+const App = () => {
+  const [showForm, setForm] = useState(true);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1 className="title">Basic-Blog</h1>
+      <button className="form-toggler" onClick={() => setForm(!showForm)}>
+        {showForm ? "CLOSE FORM" : "NEW POST"}
+      </button>
+      <div className="body">
+        {showForm && <Form />}
+        <Posts />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
