@@ -10,7 +10,7 @@ import Form from "./components/Form";
 import Posts from "./components/Posts";
 
 const App = () => {
-  const [showForm, setForm] = useState(true);
+  const [showForm, setForm] = useState(false);
 
   const dispatch = useDispatch();
 

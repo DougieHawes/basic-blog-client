@@ -45,6 +45,7 @@ $colour4: #f8f8f8;
     padding: 14px;
     position: absolute;
     transform: translateX(-50%);
+    z-index: 100;
     form {
       margin: 0 auto;
       max-width: 800px;
@@ -88,10 +89,24 @@ $colour4: #f8f8f8;
       background-color: $colour4;
       border: 2px solid $colour2;
       cursor: pointer;
-      height: 350px;
       margin: 3px auto;
-      padding: 4px 1%;
+      position: relative;
       width: 280px;
+      .post-image-container {
+        overflow: hidden;
+        width: 100%;
+        .post-image {
+          width: 280px;
+        }
+      }
+      .post-text-container {
+        padding: 3px 2%;
+        text-align: left;
+      }
+      .post-details-container {
+        padding: 3px 2%;
+        text-align: right;
+      }
     }
   }
 }

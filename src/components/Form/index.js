@@ -8,10 +8,10 @@ import { createPost } from "../../actions/posts";
 
 const Form = () => {
   const [postData, setPostData] = useState({
-    creator: "Doug",
-    title: "Doug's Memory",
-    message: "A memory by Doug",
-    tags: "sexy,genius",
+    creator: "",
+    title: "",
+    message: "",
+    tags: "",
     selectedFile: "",
   });
 
@@ -44,7 +44,7 @@ const Form = () => {
           name="title"
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
-          placeholder="enter name..."
+          placeholder="enter post title..."
         />
         <textarea
           className="input text-area"
@@ -54,7 +54,7 @@ const Form = () => {
           onChange={(e) =>
             setPostData({ ...postData, message: e.target.value })
           }
-          placeholder="enter name..."
+          placeholder="enter message..."
         />
         <input
           className="input"
@@ -62,7 +62,7 @@ const Form = () => {
           name="tags"
           value={postData.tags}
           onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
-          placeholder="enter name..."
+          placeholder="enter tags separted by a comma..."
         />
         <FileBase
           className="input"
