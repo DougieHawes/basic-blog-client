@@ -1,35 +1,18 @@
-import React, { useEffect, useState } from "react";
-
-import { useDispatch } from "react-redux";
-
-import { getPosts } from "./actions/posts";
-
 import "./style.min.css";
 
-import Form from "./components/Form";
-import Posts from "./components/Posts";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-const App = () => {
-  const [showForm, setForm] = useState(false);
+import PostList from "./components/PostList";
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
-
+function App() {
   return (
-    <div className="app">
-      <h1 className="title">Basic-Blog</h1>
-      <button className="form-toggler" onClick={() => setForm(!showForm)}>
-        {showForm ? "CLOSE FORM" : "NEW POST"}
-      </button>
-      <div className="body">
-        {showForm && <Form />}
-        <Posts />
-      </div>
-    </div>
+    <BrowserRouter>
+      <div className="app">DougsDevBlog</div>
+      <Switch>
+        <Route exact path="/posts" component={PostList} />
+      </Switch>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
